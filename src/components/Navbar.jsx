@@ -52,7 +52,7 @@ export default function Navbar() {
             <a className="font-headline-md text-headline-md font-bold text-primary tracking-tight" href="#">Heutrix Labs</a>
           </div>
           <nav className="hidden md:flex items-center gap-lg">
-            {['home', 'services', 'about', 'faq'].map((id) => (
+            {['home', 'services', 'about', 'FAQ'].map((id) => (
               <a
                 key={id}
                 className={`font-label-md text-label-md transition-colors ${
