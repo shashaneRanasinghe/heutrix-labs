@@ -20,8 +20,8 @@ export default function Checklist() {
         className="max-w-container-max mx-auto bg-primary text-on-primary rounded-xxl p-xl md:p-xxl relative overflow-hidden flex flex-col md:flex-row items-center gap-xl"
       >
         <div className="relative z-10 flex-1">
-          <h2 className="font-display-lg text-display-lg-mobile md:text-display-lg mb-md">Is your business ready for automation?</h2>
-          <p className="font-body-lg text-body-lg text-on-primary-fixed-variant mb-xl">Download our "Workflow Automation Opportunity Checklist" to identify the low-hanging fruit in your operations.</p>
+          <h2 className="font-display-lg text-display-lg-mobile md:text-display-lg mb-md">Download the Practice Workflow Opportunity Checklist</h2>
+          <p className="font-body-lg text-body-lg text-on-primary-fixed-variant mb-xl">Find the admin and operational workflows your practice should stop managing manually. Use this checklist to identify repeated admin, manual follow-up, duplicated data entry, reporting gaps, and unclear handovers.</p>
           <button className="bg-secondary-fixed text-on-secondary-fixed px-xl py-lg rounded-xl font-headline-sm hover:scale-105 transition-transform flex items-center gap-md">
             <span className="material-symbols-outlined" data-icon="download">download</span>
             Download the Checklist

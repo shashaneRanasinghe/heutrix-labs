@@ -9,15 +9,15 @@ export default function About() {
           <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true, amount: 0.3 }}>
             <h2 className="font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-md">"We diagnose before we build."</h2>
             <p className="font-body-lg text-body-lg text-on-surface-variant mb-lg">
-              At Heutrix Labs, we believe that technology applied to an inefficient process only magnifies the inefficiency. That's why we start with the numbers, the people, and the manual clicks.
+              Good operational improvement starts with understanding the workflow. Before recommending a system, dashboard, automation or AI-supported workflow, we look at what triggers the process, who is involved, where work gets stuck, and what risks need to be controlled. Then we recommend the simplest useful solution.
             </p>
             <div className="p-lg bg-error-container text-on-error-container rounded-xl border-l-4 border-error mb-xl">
               <div className="flex items-start gap-md">
                 <span className="material-symbols-outlined mt-1" data-icon="warning">warning</span>
                 <div>
-                  <p className="font-label-md text-label-md font-bold mb-xs">Legal Disclaimer</p>
+                  <p className="font-label-md text-label-md font-bold mb-xs">Clear service boundaries</p>
                   <p className="font-body-sm text-body-sm">
-                    Heutrix Labs provides operational workflow solutions. We do **NOT** provide NDIS audit readiness, compliance assurance, or legislative advice. Our work is strictly focused on business efficiency and technical operations.
+                    Heutrix Labs provides workflow improvement, safe AI support, practice visibility builds and operational systems. We do **NOT** provide clinical advice, medical advice, legal advice, financial advice, regulatory advice, official audit services, NDIS registration readiness, or compliance gap assessments.
                   </p>
                 </div>
               </div>
@@ -28,7 +28,7 @@ export default function About() {
                 <img alt="Team 2" className="w-12 h-12 rounded-full border-2 border-white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhGknVEQFeApSJYPmla1zIIqpSm2EE4GXcMy4urTBFk8J5vwy4fxcFYfoxwDGVjfd2iaQ91KChi6zOBAsQ23gPDFN81G3xrb84SHl_vzxNwhPgGQR2e-1SzuLJbiVBj6Hf1dJGM_qls2-6XBAm-75CQxqUCmZvSZdfXHLgPJyCHEZDsPr51hWKj4q9pxIOAqWal0xqSl8NF5dMK7xxTvY7-qR6kfHofYULF1k3x6jOnLzujuT6erJVyRA7HgBcxb0glIOQWWH78XUn"/>
                 <img alt="Team 3" className="w-12 h-12 rounded-full border-2 border-white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVbGk5V7d77WyI_yuJOm4CgSXeWX--jLXEPC9S9uxjX_CjzRk630OaMaoez2NtqR9wUWwllN38vlX24v0jxO0OTPuZOUMww3rEDEJgGvCU-bzTwhWWu-kHTGeYbd-rFHKRIbMjHvbkEgQFe_DCmvjmE7Jxf5XbFug5sSHGIo2LkYwbpNyToQRriSx2YFl3e8y-xxKp5Humq6Z2RPfimZ5KDr0QH1J6XN7TZzMWvaAhJ4BR-EtPSi1A9nzBZwWR92PFUho6BBLqaSVq"/>
               </div>
-              <span className="font-label-md text-label-md text-on-surface-variant">Trusted by 50+ Small Businesses</span>
+              <span className="font-label-md text-label-md text-on-surface-variant">Trusted by Australian Practices</span>
             </div>
           </motion.div>
           <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: 0.2 }} viewport={{ once: true, amount: 0.3 }}>
@@ -40,19 +40,19 @@ export default function About() {
                 <ul className="space-y-md">
                   <li className="flex items-center gap-md">
                     <div className="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">1</div>
-                    <p className="font-body-md text-body-md">Diagnostic: Finding the gaps</p>
+                    <p className="font-body-md text-body-md">Diagnostic: Finding the workflow gaps</p>
                   </li>
                   <li className="flex items-center gap-md">
                     <div className="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">2</div>
-                    <p className="font-body-md text-body-md">Infrastructure: Cleaning the data</p>
+                    <p className="font-body-md text-body-md">Process: Uncovering manual clicks</p>
                   </li>
                   <li className="flex items-center gap-md">
                     <div className="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">3</div>
-                    <p className="font-body-md text-body-md">Automation: Deleting the busywork</p>
+                    <p className="font-body-md text-body-md">Automation: Reducing repeated admin</p>
                   </li>
                   <li className="flex items-center gap-md">
                     <div className="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">4</div>
-                    <p className="font-body-md text-body-md">Safe AI: Scaling human potential</p>
+                    <p className="font-body-md text-body-md">Safe AI: Scaling with patient trust</p>
                   </li>
                 </ul>
               </div>

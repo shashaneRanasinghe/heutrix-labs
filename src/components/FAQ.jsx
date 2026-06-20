@@ -5,9 +5,11 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState(null);
 
   const faqs = [
-    { q: 'How long does a typical automation sprint take?', a: 'Our standard Workflow Automation Sprints are designed for a 2-week turnaround. This includes discovery, build, and a 3-day testing period. Larger custom builds are quoted based on complexity.' },
-    { q: 'Is our data safe with your AI solutions?', a: 'Yes. We do not use public ChatGPT for business operations. We implement private API pipelines where your data is NOT used for training the base models, ensuring full data sovereignty.' },
-    { q: 'Do you help with NDIS audits?', a: 'No. Our NDIS Operational Pack is strictly for automating service delivery, scheduling, and invoicing workflows. For compliance and audit readiness, we recommend speaking with Heutrix Assurance (a separate entity).' }
+    { q: 'What does Heutrix Labs do?', a: 'Heutrix Labs helps health practices improve operational workflows through practical process improvement, automation, better visibility, safe AI support and lightweight internal systems.' },
+    { q: 'Who does Heutrix Labs work with?', a: 'We work primarily with allied health, dental, medical, specialist and care-related practices that need clearer workflows, better follow-up, safer AI use or better visibility over day-to-day operations.' },
+    { q: 'What is the Workflow Diagnostic?', a: 'It is a paid assessment that helps identify the best workflow to improve first. It is designed for practices that know something is taking too much time, creating avoidable risk or causing inconsistent follow-up, but are not sure what should be changed first.' },
+    { q: 'Can we use AI with patient or client information?', a: 'Not without a careful review. Heutrix Labs does not recommend entering identifiable patient, client, participant, staff or sensitive business information into publicly available generative AI tools.' },
+    { q: 'Do you guarantee cost savings or productivity improvements?', a: 'No. Heutrix Labs does not guarantee cost savings, revenue growth, productivity gains or business performance improvements. Outcomes depend on implementation, adoption, data quality, staff use and management oversight.' }
   ];
 
   return (

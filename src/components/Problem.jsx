@@ -1,61 +1,55 @@
-import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import React from 'react';
+import { motion } from 'framer-motion';
 
 export default function Problem() {
-  const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"]
-  });
-
-  const titleOpacity = useTransform(scrollYProgress, [0, 0.15], [1, 0]);
-  const titleY = useTransform(scrollYProgress, [0, 0.15], [0, -50]);
-
-  const step1Opacity = useTransform(scrollYProgress, [0.1, 0.2, 0.35, 0.45], [0, 1, 1, 0]);
-  const step1Y = useTransform(scrollYProgress, [0.1, 0.2, 0.35, 0.45], [50, 0, 0, -50]);
-  const step1Scale = useTransform(scrollYProgress, [0.1, 0.2], [0.9, 1]);
-
-  const step2Opacity = useTransform(scrollYProgress, [0.4, 0.5, 0.65, 0.75], [0, 1, 1, 0]);
-  const step2Y = useTransform(scrollYProgress, [0.4, 0.5, 0.65, 0.75], [50, 0, 0, -50]);
-  const step2Scale = useTransform(scrollYProgress, [0.4, 0.5], [0.9, 1]);
-
-  const step3Opacity = useTransform(scrollYProgress, [0.7, 0.8, 0.95, 1], [0, 1, 1, 1]);
-  const step3Y = useTransform(scrollYProgress, [0.7, 0.8, 0.95, 1], [50, 0, 0, 0]);
-  const step3Scale = useTransform(scrollYProgress, [0.7, 0.8], [0.9, 1]);
+  const issues = [
+    "patient enquiries or referral requests are followed up differently by different people",
+    "referrals, reports, recalls or document requests are hard to track end to end",
+    "routine admin steps depend on memory, inbox searches or one person’s local spreadsheet",
+    "reception, clinicians and practice managers do not always have the same view of what is waiting",
+    "handovers between team members are inconsistent or hard to review",
+    "recalls, reminders or follow-up actions are not easy to monitor",
+    "the same information is copied between systems",
+    "managers cannot easily see workload, bottlenecks or work in progress",
+    "reporting takes too long or depends on one person",
+    "AI tools are being used informally without practice-approved rules"
+  ];
 
   return (
-    <section ref={containerRef} className="bg-primary text-on-primary h-[300vh]" id="problem">
-      <div className="sticky top-0 h-screen flex flex-col justify-center items-center px-lg overflow-hidden">
-        
-        <motion.div style={{ opacity: titleOpacity, y: titleY }} className="absolute top-[20%] text-center px-lg w-full max-w-4xl">
-          <h2 className="font-headline-md text-headline-md mb-md">When work depends on memory, the business is at risk.</h2>
+    <section className="py-xxl px-lg bg-primary text-on-primary relative z-20" id="problem">
+      <div className="max-w-container-max mx-auto">
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true, amount: 0.2 }} className="max-w-4xl mb-xxl">
+          <h2 className="font-headline-md text-headline-md text-white mb-md drop-shadow-lg">When important work is spread across memory, inboxes and spreadsheets, even capable teams can lose visibility.</h2>
+          <p className="font-body-lg text-body-lg text-on-primary-fixed-variant">
+            Many practice teams are highly capable, but the systems around them have not always kept up with growth, staff changes, patient demand or disconnected tools. Heutrix Labs helps identify where important admin and operational work needs clearer ownership, tracking, reminders, handover or review.
+          </p>
         </motion.div>
 
-        <div className="relative w-full max-w-4xl h-[400px]">
-          <motion.div style={{ opacity: step1Opacity, y: step1Y, scale: step1Scale }} className="absolute top-1/2 -translate-y-1/2 left-0 w-full flex flex-col md:flex-row gap-lg items-start">
-            <span className="font-display-lg text-secondary-fixed-dim shrink-0">01</span>
-            <div>
-              <h3 className="font-headline-sm text-headline-sm mb-sm text-white">Duplicated Entry Fatigue</h3>
-              <p className="font-body-lg text-body-lg text-on-primary-fixed-variant">Entering the same client data into three different tools isn't just slow; it's where errors live.</p>
-            </div>
-          </motion.div>
+        <h3 className="font-headline-md text-headline-md text-secondary-fixed mb-xl">You may notice:</h3>
 
-          <motion.div style={{ opacity: step2Opacity, y: step2Y, scale: step2Scale }} className="absolute top-1/2 -translate-y-1/2 left-0 w-full flex flex-col md:flex-row gap-lg items-start">
-            <span className="font-display-lg text-secondary-fixed-dim shrink-0">02</span>
-            <div>
-              <h3 className="font-headline-sm text-headline-sm mb-sm text-white">The Spreadsheet Ceiling</h3>
-              <p className="font-body-lg text-body-lg text-on-primary-fixed-variant">Spreadsheets break down when more than two people need to use them simultaneously for operations.</p>
-            </div>
-          </motion.div>
-
-          <motion.div style={{ opacity: step3Opacity, y: step3Y, scale: step3Scale }} className="absolute top-1/2 -translate-y-1/2 left-0 w-full flex flex-col md:flex-row gap-lg items-start">
-            <span className="font-display-lg text-secondary-fixed-dim shrink-0">03</span>
-            <div>
-              <h3 className="font-headline-sm text-headline-sm mb-sm text-white">The AI Wild West</h3>
-              <p className="font-body-lg text-body-lg text-on-primary-fixed-variant">Staff are already using AI. Without clear rules and safe pipelines, your intellectual property is leaking.</p>
-            </div>
-          </motion.div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-lg">
+          {issues.map((issue, i) => (
+            <motion.div 
+              key={i} 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: (i % 2) * 0.1 }}
+              viewport={{ once: true, amount: 0.2 }}
+              className="bg-white/5 backdrop-blur-xl rounded-xl p-lg border border-white/10 flex items-start gap-md hover:bg-white/10 transition-colors"
+            >
+              <div className="w-10 h-10 rounded-full bg-secondary-fixed/20 text-secondary-fixed flex items-center justify-center shrink-0">
+                <span className="material-symbols-outlined text-[20px]">adjust</span>
+              </div>
+              <p className="font-headline-sm text-headline-sm text-white pt-1">{issue}</p>
+            </motion.div>
+          ))}
         </div>
+
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true, amount: 0.2 }} className="mt-xxl max-w-4xl">
+          <p className="font-body-lg text-body-lg text-white font-medium border-l-4 border-secondary pl-lg">
+            Heutrix Labs helps turn these pressure points into clearer workflows, practical tracking systems, safer AI practices and better visibility for day-to-day decisions.
+          </p>
+        </motion.div>
       </div>
     </section>
   );

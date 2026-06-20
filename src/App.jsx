@@ -1,33 +1,59 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Problem from './components/Problem';
 import Services from './components/Services';
+import Methodology from './components/Methodology';
+import Checklist from './components/Checklist';
 import About from './components/About';
 import FAQ from './components/FAQ';
-import Checklist from './components/Checklist';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
-export default function App() {
+function App() {
+  const [activeSection, setActiveSection] = useState('home');
+
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '-40% 0px -40% 0px',
+      threshold: 0
+    };
+
+    const observerCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    const sections = document.querySelectorAll('section[id]');
+    
+    sections.forEach((section) => observer.observe(section));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="bg-background text-on-background font-body-md selection:bg-secondary-container selection:text-on-secondary-container">
-      <Navbar />
-      <main className="pt-16">
+    <div className="min-h-screen bg-surface font-body-lg text-on-surface antialiased selection:bg-secondary/30 selection:text-primary scroll-smooth">
+      <Navbar activeSection={activeSection} />
+      
+      <main>
         <Hero />
         <Problem />
         <Services />
+        <Methodology />
+        <Checklist />
         <About />
         <FAQ />
-        <Checklist />
         <Contact />
       </main>
+
       <Footer />
-      
-      {/* FAB */}
-      <a className="fixed bottom-8 right-8 w-16 h-16 bg-primary text-on-primary rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-40 group md:hidden" href="#contact">
-        <span className="material-symbols-outlined" data-icon="call">call</span>
-      </a>
     </div>
   );
 }
+
+export default App;

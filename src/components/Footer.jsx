@@ -8,7 +8,7 @@ export default function Footer() {
           <div className="max-w-md">
             <span className="font-headline-sm text-headline-sm text-secondary-fixed font-bold block mb-md">Heutrix Labs</span>
             <p className="font-body-sm text-body-sm text-on-primary-fixed-variant mb-md">
-              Operational excellence for the modern small business. We bridge the gap between chaotic spreadsheets and industrial-grade automation.
+              Heutrix Labs helps Australian health practices improve operational workflows through practical process improvement, automation, safe AI support, better visibility and maintainable systems.
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-xl">
@@ -24,8 +24,8 @@ export default function Footer() {
               <p className="font-label-md text-label-md text-white mb-md">Legal</p>
               <ul className="space-y-sm font-body-sm text-on-primary-fixed-variant">
                 <li><a className="hover:text-white transition-colors" href="#">Privacy Policy</a></li>
-                <li><a className="hover:text-white transition-colors" href="#">Terms of Service</a></li>
-                <li><a className="hover:text-white transition-colors" href="#">Legal Disclaimer</a></li>
+                <li><a className="hover:text-white transition-colors" href="#">Terms of Use</a></li>
+                <li><a className="hover:text-white transition-colors" href="#">Website Disclaimer</a></li>
               </ul>
             </div>
             <div className="col-span-2 md:col-span-1">
@@ -40,9 +40,9 @@ export default function Footer() {
         </div>
         <div className="border-t border-on-primary-fixed-variant pt-lg flex flex-col gap-lg">
           <div className="p-lg bg-on-primary-fixed-variant/10 rounded-xl">
-            <p className="font-label-sm text-label-sm font-bold text-secondary-fixed mb-xs uppercase tracking-widest">Brand Separation Statement</p>
+            <p className="font-label-sm text-label-sm font-bold text-secondary-fixed mb-xs uppercase tracking-widest">Website Disclaimer</p>
             <p className="font-body-sm text-body-sm text-on-primary-fixed-variant">
-              Heutrix Labs and Heutrix Assurance are distinct business units. Heutrix Labs focuses solely on operational workflow and technical automation. We do not provide assurance, auditing, or compliance verification services. No partnership or engagement with Heutrix Labs constitutes an audit-ready status.
+              Heutrix Labs provides workflow improvement, safe AI support, practice visibility builds and operational systems support. Heutrix Labs does not provide legal advice, financial advice, tax advice, employment advice, clinical advice, medical advice, regulatory advice, official audit services, NDIS registration readiness, audit readiness, evidence preparation, mock audit support, compliance gap assessments or assurance services.
             </p>
           </div>
           <div className="flex flex-col md:flex-row justify-between items-center gap-md">
