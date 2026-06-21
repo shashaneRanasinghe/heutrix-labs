@@ -1,113 +1,145 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { ctas, mainNav } from '../siteContent';
 
-export default function Navbar() {
-  const [activeSection, setActiveSection] = useState('home');
+const navIcons = {
+  '/': 'home',
+  '/services': 'settings',
+  '/pricing': 'payments',
+  '/safe-ai': 'verified_user',
+  '/about': 'info',
+  '/faq': 'help'
+};
+
+export default function Navbar({ currentPath = '/' }) {
   const [scrolled, setScrolled] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-
-    const sectionCallback = (entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          setActiveSection(entry.target.id);
-        }
-      });
-    };
-    const sectionObserver = new IntersectionObserver(sectionCallback, {
-      threshold: 0,
-      rootMargin: '-40% 0px -40% 0px'
-    });
-    document.querySelectorAll('section[id], main > section[id]').forEach(el => {
-      sectionObserver.observe(el);
-    });
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      sectionObserver.disconnect();
-    }
+    const handleScroll = () => setScrolled(window.scrollY > 24);
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (e, targetId) => {
-    e.preventDefault();
-    setDrawerOpen(false);
-    const target = document.getElementById(targetId);
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  useEffect(() => {
+    document.body.style.overflow = drawerOpen ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [drawerOpen]);
 
   return (
     <>
-      <header className={`fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-outline-variant shadow-sm transition-all duration-300 ${scrolled ? 'py-1 shadow-md' : 'py-md'}`} id="main-header">
-        <div className="flex justify-between items-center px-lg max-w-container-max mx-auto h-16">
+      <header
+        className={`fixed top-0 z-50 w-full border-b border-outline-variant bg-surface/90 backdrop-blur-md transition-all duration-300 ${
+          scrolled ? 'shadow-md' : 'shadow-sm'
+        }`}
+        id="main-header"
+      >
+        <div className="mx-auto flex h-[84px] max-w-container-max items-center justify-between gap-md px-lg">
           <div className="flex items-center gap-md">
-            <button className="md:hidden p-sm text-primary" onClick={() => setDrawerOpen(true)}>
-              <span className="material-symbols-outlined" data-icon="menu">menu</span>
+            <button
+              type="button"
+              className="rounded-lg p-sm text-primary md:hidden"
+              onClick={() => setDrawerOpen(true)}
+              aria-label="Open navigation"
+            >
+              <span className="material-symbols-outlined" aria-hidden="true">
+                menu
+              </span>
             </button>
-            <a className="font-headline-md text-headline-md font-bold text-primary tracking-tight" href="#">Heutrix Labs</a>
+            <a className="font-headline-md text-headline-md font-bold tracking-tight text-primary" href="/">
+              Heutrix Labs
+            </a>
           </div>
-          <nav className="hidden md:flex items-center gap-lg">
-            {[
-              { id: 'home', label: 'Home' },
-              { id: 'services', label: 'Services' },
-              { id: 'about', label: 'About' },
-              { id: 'faq', label: 'FAQ' },
-            ].map((item) => (
-              <a
-                key={item.id}
-                className={`font-label-md text-label-md transition-colors ${
-                  activeSection === item.id || (activeSection === 'problem' && item.id === 'home') || (activeSection === 'checklist' && item.id === 'faq')
-                    ? 'text-secondary border-b-2 border-secondary pb-1'
-                    : 'text-on-surface-variant hover:text-secondary'
-                }`}
-                href={`#${item.id}`}
-                onClick={(e) => scrollToSection(e, item.id)}
-              >
-                {item.label}
-              </a>
-            ))}
-            <a className="bg-primary text-on-primary px-lg py-sm rounded-xl font-label-md text-label-md hover:opacity-90 transition-all shadow-sm" href="#contact" onClick={(e) => scrollToSection(e, 'contact')}>Book a Free Fit Call</a>
+
+          <nav className="hidden items-center gap-lg md:flex" aria-label="Main navigation">
+            {mainNav.map((item) => {
+              const active = item.path === currentPath;
+              return (
+                <a
+                  key={item.path}
+                  className={`font-label-md text-label-md transition-colors ${
+                    active ? 'border-b-2 border-secondary pb-1 text-secondary' : 'text-on-surface-variant hover:text-secondary'
+                  }`}
+                  href={item.path}
+                  aria-current={active ? 'page' : undefined}
+                >
+                  {item.label}
+                </a>
+              );
+            })}
+            <a
+              className="rounded-xl bg-primary px-lg py-sm font-label-md text-label-md text-on-primary shadow-sm transition-opacity hover:opacity-95"
+              href={ctas.fitCall.href}
+            >
+              Book a Free Fit Call
+            </a>
           </nav>
         </div>
       </header>
 
-      {/* Mobile Drawer */}
-      <div className={`fixed inset-0 bg-primary/20 backdrop-blur-sm z-[55] transition-opacity duration-300 ${drawerOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} onClick={() => setDrawerOpen(false)}></div>
-      <aside className={`fixed inset-y-0 left-0 z-[60] w-64 bg-surface-container-lowest transform transition-transform duration-300 ease-in-out p-md flex flex-col gap-md ${drawerOpen ? 'translate-x-0' : '-translate-x-full'}`}>
-        <div className="flex justify-between items-center mb-lg">
-          <span className="font-headline-sm text-headline-sm font-bold text-primary">Heutrix Labs</span>
-          <button className="p-sm" onClick={() => setDrawerOpen(false)}>
-            <span className="material-symbols-outlined" data-icon="close">close</span>
+      <div
+        className={`fixed inset-0 z-[55] bg-primary/20 backdrop-blur-sm transition-opacity duration-300 ${
+          drawerOpen ? 'opacity-100' : 'pointer-events-none opacity-0'
+        }`}
+        onClick={() => setDrawerOpen(false)}
+        aria-hidden="true"
+      />
+      <aside
+        className={`fixed inset-y-0 left-0 z-[60] flex w-[min(320px,86vw)] transform flex-col gap-md bg-surface-container-lowest p-md shadow-2xl transition-transform duration-300 ease-in-out ${
+          drawerOpen ? 'translate-x-0' : '-translate-x-full'
+        }`}
+        aria-label="Mobile navigation"
+      >
+        <div className="mb-md flex items-center justify-between">
+          <a className="font-headline-sm text-headline-sm font-bold text-primary" href="/" onClick={() => setDrawerOpen(false)}>
+            Heutrix Labs
+          </a>
+          <button type="button" className="rounded-lg p-sm text-primary" onClick={() => setDrawerOpen(false)} aria-label="Close navigation">
+            <span className="material-symbols-outlined" aria-hidden="true">
+              close
+            </span>
           </button>
         </div>
+
         <nav className="flex flex-col gap-xs">
-          {[
-            { id: 'home', icon: 'home', label: 'Home' },
-            { id: 'services', icon: 'settings', label: 'Services' },
-            { id: 'about', icon: 'info', label: 'About' },
-            { id: 'faq', icon: 'help', label: 'FAQ' },
-          ].map((item) => (
-            <a
-              key={item.id}
-              className={`flex items-center gap-md p-md rounded-xl transition-colors ${
-                activeSection === item.id || (activeSection === 'problem' && item.id === 'home') || (activeSection === 'checklist' && item.id === 'faq')
-                  ? 'bg-secondary-container text-on-secondary-container font-bold'
-                  : 'text-on-surface-variant hover:bg-surface-container-low'
-              }`}
-              href={`#${item.id}`}
-              onClick={(e) => scrollToSection(e, item.id)}
-            >
-              <span className="material-symbols-outlined" data-icon={item.icon}>{item.icon}</span> {item.label}
-            </a>
-          ))}
+          {mainNav.map((item) => {
+            const active = item.path === currentPath;
+            return (
+              <a
+                key={item.path}
+                className={`flex items-center gap-md rounded-xl p-md transition-colors ${
+                  active ? 'bg-secondary-container font-bold text-on-secondary-container' : 'text-on-surface-variant hover:bg-surface-container-low'
+                }`}
+                href={item.path}
+                aria-current={active ? 'page' : undefined}
+                onClick={() => setDrawerOpen(false)}
+              >
+                <span className="material-symbols-outlined" aria-hidden="true">
+                  {navIcons[item.path]}
+                </span>
+                {item.label}
+              </a>
+            );
+          })}
         </nav>
-        <div className="mt-auto pt-lg border-t border-outline-variant">
-          <a className="block text-center bg-secondary-fixed-dim text-on-secondary-fixed p-md rounded-xl font-label-md" href="#checklist" onClick={(e) => scrollToSection(e, 'checklist')}>Download Checklist</a>
+
+        <div className="mt-auto space-y-sm border-t border-outline-variant pt-lg">
+          <a
+            className="block rounded-xl bg-primary p-md text-center font-label-md text-on-primary"
+            href={ctas.fitCall.href}
+            onClick={() => setDrawerOpen(false)}
+          >
+            Book a free fit call
+          </a>
+          <a
+            className="block rounded-xl bg-secondary-fixed-dim p-md text-center font-label-md text-on-secondary-fixed"
+            href={ctas.checklist.href}
+            onClick={() => setDrawerOpen(false)}
+          >
+            Download the workflow checklist
+          </a>
         </div>
       </aside>
     </>

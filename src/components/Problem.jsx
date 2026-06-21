@@ -2,26 +2,25 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 export default function Problem() {
+  // Pain-point list condensed from the supplied "Does this sound familiar?" section for faster scanning.
   const issues = [
-    "patient enquiries or referral requests are followed up differently by different people",
-    "referrals, reports, recalls or document requests are hard to track end to end",
-    "routine admin steps depend on memory, inbox searches or one person’s local spreadsheet",
-    "reception, clinicians and practice managers do not always have the same view of what is waiting",
-    "handovers between team members are inconsistent or hard to review",
-    "recalls, reminders or follow-up actions are not easy to monitor",
-    "the same information is copied between systems",
-    "managers cannot easily see workload, bottlenecks or work in progress",
-    "reporting takes too long or depends on one person",
-    "AI tools are being used informally without practice-approved rules"
+    "follow-ups tracked in inboxes, spreadsheets or memory",
+    "the same information copied between systems",
+    "managers unable to see what is waiting, overdue or stuck",
+    "handovers that depend on the person rather than the process",
+    "inconsistent onboarding or admin steps",
+    "reports that take too long to prepare",
+    "risk, incident, complaint or evidence tracking gaps",
+    "staff using AI tools without clear practice rules"
   ];
 
   return (
     <section className="py-xxl px-lg bg-primary text-on-primary relative z-20" id="problem">
       <div className="max-w-container-max mx-auto">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true, amount: 0.2 }} className="max-w-4xl mb-xxl">
-          <h2 className="font-headline-md text-headline-md text-white mb-md drop-shadow-lg">When important work is spread across memory, inboxes and spreadsheets, even capable teams can lose visibility.</h2>
+          <h2 className="font-headline-md text-headline-md text-white mb-md drop-shadow-lg">Does this sound familiar?</h2>
           <p className="font-body-lg text-body-lg text-on-primary-fixed-variant">
-            Many practice teams are highly capable, but the systems around them have not always kept up with growth, staff changes, patient demand or disconnected tools. Heutrix Labs helps identify where important admin and operational work needs clearer ownership, tracking, reminders, handover or review.
+            Even capable teams lose visibility when important work is spread across memory, inboxes and spreadsheets.
           </p>
         </motion.div>
 
@@ -47,7 +46,7 @@ export default function Problem() {
 
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true, amount: 0.2 }} className="mt-xxl max-w-4xl">
           <p className="font-body-lg text-body-lg text-white font-medium border-l-4 border-secondary pl-lg">
-            Heutrix Labs helps turn these pressure points into clearer workflows, practical tracking systems, safer AI practices and better visibility for day-to-day decisions.
+            Heutrix Labs helps turn these pressure points into clearer workflows, practical tracking systems, safer AI guidance and better operational visibility.
           </p>
         </motion.div>
       </div>
