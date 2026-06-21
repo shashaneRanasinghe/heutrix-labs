@@ -20,11 +20,13 @@ export default function Checklist() {
         className="max-w-container-max mx-auto bg-primary text-on-primary rounded-xxl p-xl md:p-xxl relative overflow-hidden flex flex-col md:flex-row items-center gap-xl"
       >
         <div className="relative z-10 flex-1">
+          {/* Lead magnet copy updated from the supplied checklist landing page. */}
           <h2 className="font-display-lg text-display-lg-mobile md:text-display-lg mb-md">Download the Practice Workflow Opportunity Checklist</h2>
-          <p className="font-body-lg text-body-lg text-on-primary-fixed-variant mb-xl">Find the admin and operational workflows your practice should stop managing manually. Use this checklist to identify repeated admin, manual follow-up, duplicated data entry, reporting gaps, and unclear handovers.</p>
+          <p className="font-body-lg text-body-lg text-on-primary-fixed-variant mb-md">Find the admin workflows your practice should stop managing through memory, inboxes and scattered spreadsheets.</p>
+          <p className="font-body-lg text-body-lg text-on-primary-fixed-variant mb-xl">Use this checklist to identify repeated admin, manual follow-up, duplicated data entry, reporting gaps, unclear handovers and workflow problems that may be suitable for process improvement, automation, safer AI support, better visibility or clearer task ownership.</p>
           <button className="bg-secondary-fixed text-on-secondary-fixed px-xl py-lg rounded-xl font-headline-sm hover:scale-105 transition-transform flex items-center gap-md">
             <span className="material-symbols-outlined" data-icon="download">download</span>
-            Download the Checklist
+            Download the checklist
           </button>
         </div>
         <div className="relative z-10 flex-1 hidden lg:block">

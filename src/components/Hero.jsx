@@ -12,36 +12,34 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative overflow-hidden min-h-[795px] flex items-center px-lg py-xxl" id="home">
+    <section className="relative overflow-hidden min-h-[795px] flex items-center px-lg pt-[132px] pb-xxl" id="home">
       <div className="max-w-container-max mx-auto w-full relative z-10 grid lg:grid-cols-2 gap-xl items-center">
         <motion.div variants={container} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.3 }}>
+          {/* Updated from supplied production copy: sharper audience, offer, and CTA language. */}
           <motion.div variants={item} className="inline-flex items-center gap-sm bg-secondary-container text-on-secondary-container px-md py-xs rounded-full mb-lg shadow-sm border border-on-secondary-container/10">
             <span className="material-symbols-outlined text-[18px]" data-icon="verified">verified</span>
-            <span className="font-label-sm text-label-sm uppercase tracking-widest">Workflow improvement for Australian health practices</span>
+            <span className="font-label-sm text-label-sm uppercase tracking-widest">Workflow systems for Australian health practices</span>
           </motion.div>
           <motion.h1 variants={item} className="font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-md leading-tight">
-            Workflow improvement and safe AI support for Australian health practices.
+            Workflow systems, automation and safe AI support for Australian health practices.
           </motion.h1>
           <motion.p variants={item} className="font-body-lg text-body-lg text-on-surface-variant mb-md max-w-xl">
-            Heutrix Labs helps allied health, dental, medical and specialist practices improve the operational work around patient care.
+            Heutrix Labs helps GP clinics, allied health practices and specialist providers clean up messy admin, scattered spreadsheets, manual follow-up and unsafe AI use.
           </motion.p>
           <motion.p variants={item} className="font-body-lg text-body-lg text-on-surface-variant mb-md max-w-xl">
-            We help reduce repeated admin, improve follow-up, make important work easier to see and set safe rules for AI use where it genuinely helps.
-          </motion.p>
-          <motion.p variants={item} className="font-body-lg text-body-lg text-on-surface-variant mb-xl max-w-xl">
-            We start with how your practice actually works, then recommend practical improvements such as clearer workflows, better tracking, safer AI rules, automation between existing tools, visibility views or lightweight internal systems.
+            We map how the work actually happens, then build practical improvements such as workflow trackers, dashboards, automations, handover systems and safe AI rules.
           </motion.p>
           <motion.div variants={item} className="flex flex-col sm:flex-row gap-md mb-md">
-            <a className="flex items-center justify-center gap-sm bg-primary text-on-primary px-xl py-lg rounded-xl font-headline-sm hover:opacity-90 transition-all shadow-md group" href="#contact">
+            <a className="flex items-center justify-center gap-sm bg-primary text-on-primary px-xl py-lg rounded-xl font-headline-sm hover:opacity-90 transition-all shadow-md group whitespace-nowrap" href="#contact">
               Book a free fit call
               <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
             </a>
-            <a className="flex items-center justify-center gap-sm border-2 border-primary text-primary px-xl py-lg rounded-xl font-headline-sm hover:bg-primary hover:text-on-primary transition-all" href="#services">
-              View services
+            <a className="flex items-center justify-center gap-sm border-2 border-primary text-primary px-xl py-lg rounded-xl font-headline-sm hover:bg-primary hover:text-on-primary transition-all" href="#checklist">
+              Download the workflow checklist
             </a>
           </motion.div>
           <motion.p variants={item} className="font-body-sm text-body-sm text-on-surface-variant italic max-w-xl">
-            For established practices that want clearer workflows, safer AI use and better day-to-day operational visibility without disrupting patient care.
+            For practice owners and managers who need clearer workflows, better visibility and safer use of technology without disrupting patient care.
           </motion.p>
         </motion.div>
         <motion.div 
@@ -59,8 +57,8 @@ export default function Hero() {
                   <span className="material-symbols-outlined" data-icon="visibility">visibility</span>
                 </div>
                 <div>
-                  <p className="font-label-md text-label-md text-primary">Clearer Workflows</p>
-                  <p className="font-body-sm text-body-sm text-on-surface-variant">Without disrupting patient care</p>
+                  <p className="font-label-md text-label-md text-primary">Workflow first. Technology second.</p>
+                  <p className="font-body-sm text-body-sm text-on-surface-variant">Practical systems for daily practice work</p>
                 </div>
               </div>
             </div>

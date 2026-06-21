@@ -35,5 +35,17 @@
 }
 
 body {
-  min-height: max(884px, 100dvh);
+  min-height: 100dvh;
+}
+
+/* Anchor jumps now account for the fixed header used by the updated nav. */
+section[id] {
+  scroll-margin-top: 104px;
+}
+
+@media (min-width: 768px) {
+  .responsive-table-header,
+  .responsive-table-row {
+    grid-template-columns: var(--row-columns);
+  }
 }
